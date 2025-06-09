@@ -1,0 +1,30 @@
+#include <iostream>
+#include <iomanip> // for std::setprecision
+
+using namespace std;
+
+int main() {
+    int n;
+    float totalCredits = 0, totalPoints = 0;
+
+    cout << "Enter the number of subjects: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        float gradePoint, credit;
+        cout << "\nEnter grade point for subject " << i << " (e.g., 10 for A+, 9 for A): ";
+        cin >> gradePoint;
+        cout << "Enter credit hours for subject " << i << ": ";
+        cin >> credit;
+
+        totalPoints += gradePoint * credit;
+        totalCredits += credit;
+    }
+
+    float cgpa = totalPoints / totalCredits;
+
+    cout << fixed << setprecision(2); // display 2 decimal places
+    cout << "\nYour CGPA is: " << cgpa << endl;
+
+    return 0;
+}
